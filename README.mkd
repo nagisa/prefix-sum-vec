@@ -2,7 +2,8 @@
   <h1><code>prefix-sum-vec</code></h1>
 
   <p>
-    <strong>A Rust crate for compressed storage of highly repeating elements, with `log n` lookups</strong> </p>
+    <strong>A Rust crate for compressed storage of highly repeating elements, with <code>O(log n)</code> lookups</strong>
+  </p>
 </div>
 
 # What is this?
