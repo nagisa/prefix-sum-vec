@@ -1,0 +1,50 @@
+<div align="center">
+  <h1><code>prefix-sum-vec</code></h1>
+
+  <p>
+    <strong>A Rust crate for compressed storage of highly repeating elements, with `log n` lookups</strong> </p>
+</div>
+
+# What is this?
+
+The data structure provided by this crate allow users to space-efficiently store repeating
+sequences of the same value. An example of this sort of data comes up in WebAssembly, where the
+locals for a function are represented as a sequence of types and their repetition count. The binary
+encoding of function locals such as these
+
+```wast
+(locals i32 i32 i32 i32 i64 i64 f64)
+```
+
+is actually encoded as a sequence along the lines of `0x04 i32 0x02 i64 0x01 f64`. Were the decoded
+representation of the locals naively stuff everything into a vector, a potential denial-of-service
+hazard could arise. A crafted input with a representation of millions of locals in just a couple
+of bytes of encoded space would force a naive implementation to allocate gigabytes of memory space.
+
+The data structure provided by this crate stores just one copy of the repeating element alongside
+with a prefix-sum of the indices at which the element can be found. So, given the locals example
+above, the storage would look something like this:
+
+```text
+[(4, i32), (6, i64), (7, f64)]
+```
+
+From there on, looking up an element with an index 5 is a binary search away over the prefix-sum
+indices.
+
+# Usage
+
+First, specify this crate in your `Cargo.toml`:
+
+```toml
+[dependencies]
+prefix-sum-vec = "1.0"
+```
+
+This crate aims to be extremely lightweight and straightforward. As such there are no optional
+features to enable at this time. Then, refer to the documentation of the `PrefixSumVec` type to
+discover its usage in your code.
+
+# License
+
+This project is licensed under the Apache 2.0 OR BSD 3-clause license at your choice.

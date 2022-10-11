@@ -1,0 +1,14 @@
+[package]
+name = "prefix-sum-vec"
+version = "0.1.0"
+edition = "2018"
+authors = [
+    "Simonas Kazlauskas <prefix-sum-vec@kazlauskas.me>",
+    "Léo Gaspard <rust@leo.gaspard.io>"
+]
+license = "Apache-2.0 OR BSD-3-Clause"
+description = "Compressed storage for highly repeating elements, with O(log n) lookups"
+documentation = "https://docs.rs/prefix-sum-vec/"
+readme = "README.mkd"
+
+[dependencies]
