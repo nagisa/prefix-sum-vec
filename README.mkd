@@ -39,7 +39,7 @@ First, specify this crate in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-prefix-sum-vec = "1.0"
+prefix-sum-vec = "0.1"
 ```
 
 This crate aims to be extremely lightweight and straightforward. As such there are no optional

@@ -1,4 +1,4 @@
-#[doc = include_str!("../README.mkd")]
+#![doc = include_str!("../README.mkd")]
 
 /// A data structure for space-efficient storage of repeating sequences.
 ///
