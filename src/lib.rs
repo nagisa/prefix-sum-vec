@@ -195,7 +195,7 @@ impl<K, Idx: Ord> std::ops::Index<&Idx> for PrefixSumVec<K, Idx> {
 }
 
 #[non_exhaustive]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TryPushError {
     /// Reserving the additional space for the storage has failed.
     Reserve(std::collections::TryReserveError),
